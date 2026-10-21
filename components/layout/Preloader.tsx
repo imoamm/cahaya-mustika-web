@@ -139,7 +139,7 @@ export function Preloader() {
       <div className="preloader-inner">
         {/* Dua versi logo; CSS memilih sesuai tema (terang: biru, gelap: putih transparan) */}
         <Image
-          src="/images/logo-footer.png"
+          src="/images/logo-footer.webp"
           alt="Cahaya Mustika Internesia"
           width={500}
           height={500}
@@ -147,7 +147,7 @@ export function Preloader() {
           className="preloader-logo preloader-logo-light"
         />
         <Image
-          src="/images/logo-footer-dark.png"
+          src="/images/logo-footer-dark.webp"
           alt=""
           aria-hidden="true"
           width={500}

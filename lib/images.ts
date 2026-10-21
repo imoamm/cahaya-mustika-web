@@ -1,11 +1,11 @@
-// Sistem gambar PNG sequential — SATU-SATUNYA tempat yang mengatur path gambar.
+// Sistem gambar WebP sequential — SATU-SATUNYA tempat yang mengatur path gambar.
 //
-//   public/images/products/      1.png  – 6.png    (produk)
-//   public/images/applications/  7.png  – 16.png   (aplikasi)
-//   public/images/gallery/       17.png – 22.png   (galeri)
-//   public/images/brands/        23.png – 25.png   (hero brand: Samsung, LG, Hikvision)
-//   public/images/portfolio/     26.png – 31.png   (portofolio)
-//   public/images/articles/      32.png – 37.png   (gambar artikel)
+//   public/images/products/      1.webp  – 6.webp    (produk)
+//   public/images/applications/  7.webp  – 16.webp   (aplikasi)
+//   public/images/gallery/       17.webp – 22.webp   (galeri)
+//   public/images/brands/        23.webp – 25.webp   (hero brand: Samsung, LG, Hikvision)
+//   public/images/portfolio/     26.webp – 31.webp   (portofolio)
+//   public/images/articles/      32.webp – 37.webp   (gambar artikel)
 //
 // Nomor bersifat global & berurutan supaya mudah dikelola. Jika file belum ada,
 // komponen <Media /> otomatis menampilkan placeholder (tidak ada broken image / ruang kosong).
@@ -20,4 +20,4 @@ export const IMAGE_RANGES: Record<ImageGroup, readonly [first: number, last: num
   articles: [32, 37],
 };
 
-export const imagePath = (group: ImageGroup, n: number) => `/images/${group}/${n}.png`;
+export const imagePath = (group: ImageGroup, n: number) => `/images/${group}/${n}.webp`;

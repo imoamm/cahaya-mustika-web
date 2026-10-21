@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { ArticleList } from "@/components/article/ArticleList";
-import { CtaBanner } from "@/components/sections/CtaBanner";
 import { T } from "@/components/i18n/T";
 import { articles } from "@/data/articles";
 
@@ -19,7 +18,6 @@ export default function ArtikelPage() {
         <SectionHeading h1 align="center" title={<T k="art.title" />} desc={<T k="art.desc" />} />
         <ArticleList items={sorted} />
       </Section>
-      <CtaBanner />
     </>
   );
 }

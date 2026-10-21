@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,13 +12,24 @@ export function Logo() {
       className="flex shrink-0 items-center"
     >
       <div className="relative h-11 w-[185px]">
+        {/* Logo biru untuk mode terang */}
         <Image
-          src="/images/logo-cahaya-mustika.png"
-          alt="Cahaya Mustika"
+          src="/images/logo-cahaya-mustika.webp"
+          alt="Cahaya Mustika Internesia"
           fill
           priority
           sizes="185px"
-          className="object-contain object-left"
+          className="theme-logo-light object-contain object-left"
+        />
+
+        {/* Logo putih untuk mode gelap */}
+        <Image
+          src="/images/putih-logo.webp"
+          alt="Cahaya Mustika Internesia"
+          fill
+          priority
+          sizes="185px"
+          className="theme-logo-dark object-contain object-left"
         />
       </div>
     </Link>

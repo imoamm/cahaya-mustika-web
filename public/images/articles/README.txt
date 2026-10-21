@@ -1,1 +1,1 @@
-Taruh 32.png – 37.png di sini (urutan mengikuti data/articles.ts).
+Taruh 32.webp – 37.webp di sini (urutan mengikuti data/articles.ts).

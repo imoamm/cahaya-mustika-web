@@ -94,6 +94,12 @@ export const dict = {
   "prod.lifespan": bi("Usia Pakai", "Lifespan"),
   "prod.refreshRate": bi("Refresh Rate", "Refresh Rate"),
   "prod.ip": bi("IP Rating", "IP Rating"),
+  "prod.info": bi("Informasi Produk", "Product Information"),
+  "prod.seriesLabel": bi("Seri", "Series"),
+  "prod.type": bi("Tipe Produk", "Product Type"),
+  "prod.technology": bi("Teknologi", "Technology"),
+  "prod.count": bi("produk", "products"),
+  "prod.specOnRequest": bi("Spesifikasi teknis lengkap tersedia melalui tim sales kami. Hubungi kami untuk datasheet dan penawaran.", "Full technical specifications are available through our sales team. Contact us for the datasheet and a quotation."),
   "prod.backToBrand": bi("Kembali ke", "Back to"),
 
   // Portofolio

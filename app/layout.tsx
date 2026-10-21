@@ -35,7 +35,7 @@ const manrope = Manrope({
    ========================================================= */
 
 const TITLE =
-  "Cahaya Mustika | Distributor Videotron Indoor & LED Display";
+  "Cahaya Mustika Internesia | Distributor Videotron Indoor & LED Display";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -46,6 +46,8 @@ export const metadata: Metadata = {
   },
 
   description: SITE.description.id,
+
+  icons: { icon: [{ url: "/images/icon.webp", type: "image/webp" }] },
 
   openGraph: {
     title: TITLE,

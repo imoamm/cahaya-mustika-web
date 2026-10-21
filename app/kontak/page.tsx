@@ -4,7 +4,7 @@ import { T } from "@/components/i18n/T";
 
 export const metadata: Metadata = {
   title: "Kontak Kami",
-  description: "Hubungi tim Cahaya Mustika, distributor Videotron Indoor & LED Display, untuk konsultasi produk.",
+  description: "Hubungi tim Cahaya Mustika Internesia, distributor Videotron Indoor & LED Display, untuk konsultasi produk.",
   alternates: { canonical: "/kontak" },
 };
 

@@ -1,1 +1,1 @@
-Taruh 23.png (Samsung), 24.png (LG), 25.png (HikVision) di sini. Dipakai sebagai gambar hero halaman brand.
+Taruh 23.webp (Samsung), 24.webp (LG), 25.webp (HikVision) di sini. Dipakai sebagai gambar hero halaman brand.

@@ -5,14 +5,16 @@ import { ArrowUpRight } from "lucide-react";
 
 import { Media } from "@/components/ui/Media";
 import { useI18n } from "@/components/i18n/LanguageProvider";
-import { productHref, type Product } from "@/data/products";
+import { getSeries, productHref, type Product } from "@/data/products";
 import { getBrand } from "@/data/brands";
 
-export function ProductCard({ p }: { p: Product }) {
+export function ProductCard({ p, level = 3 }: { p: Product; level?: 2 | 3 | 4 }) {
   const { t, tx } = useI18n();
+  const H = level === 4 ? "h4" : level === 2 ? "h2" : "h3";
 
   const s = p.specifications;
   const brand = p.brand ? getBrand(p.brand) : null;
+  const series = getSeries(p.series);
 
   return (
     <Link
@@ -34,8 +36,8 @@ export function ProductCard({ p }: { p: Product }) {
         <Media
           src={p.images[0]}
           alt={`${p.name} ${tx(p.category)}`}
-          label={p.name}
-          sublabel={p.category}
+          label={p.pitch ? `${p.pitch}${p.tags?.length ? " " + p.tags.join(" ") : ""}` : p.name}
+          sublabel={series ? series.name : p.category}
           sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
           className="
             transition
@@ -43,6 +45,16 @@ export function ProductCard({ p }: { p: Product }) {
             group-hover:scale-110
           "
         />
+
+        {/* Pixel pitch (dari nama produk) */}
+        {p.pitch && (
+          <span className="absolute bottom-3 right-3 rounded-full bg-brand px-3 py-1 text-xs font-bold text-white shadow-lg shadow-black/20">
+            {p.pitch}
+            {p.tags?.map((tg) => (
+              <span key={tg} className="ml-1.5 border-l border-white/40 pl-1.5">{tg}</span>
+            ))}
+          </span>
+        )}
 
         {/* Brand */}
         {brand && (
@@ -69,9 +81,15 @@ export function ProductCard({ p }: { p: Product }) {
 
       {/* Informasi Produk */}
       <div className="flex flex-1 flex-col p-5 sm:p-6">
-        <h3 className="text-lg font-bold sm:text-xl">
+        {series && (
+          <p className="mb-1.5 text-xs font-semibold uppercase tracking-wider text-brand2">
+            {series.name}
+          </p>
+        )}
+
+        <H className="text-lg font-bold sm:text-xl">
           {p.name}
-        </h3>
+        </H>
 
         {s ? (
           <>
@@ -125,7 +143,7 @@ export function ProductCard({ p }: { p: Product }) {
           </>
         ) : (
           <div className="mt-2 flex-1">
-            <p className="text-sm leading-relaxed text-muted">
+            <p className={`text-sm leading-relaxed text-muted ${series ? "line-clamp-3" : ""}`}>
               {tx(p.summary)}
             </p>
           </div>

@@ -1,4 +1,4 @@
-# Cahaya Mustika — Website Videotron Indoor
+# Cahaya Mustika Internesia — Website Videotron Indoor
 
 Next.js (App Router) · TypeScript · Tailwind CSS v4 · Motion · Lucide
 
@@ -16,7 +16,7 @@ npm run build && npm start
 | Produk & spesifikasi (DUMMY) | `data/products.ts` |
 | Testimoni (DUMMY) | `data/testimonials.ts` |
 | FAQ | `data/faq.ts` |
-| Foto aplikasi & galeri | `public/images/*` (nama file PNG berurutan, lihat di bawah) |
+| Foto aplikasi & galeri | `public/images/*` (nama file WebP berurutan, lihat di bawah) |
 | Warna tema | `app/globals.css` (bagian THEME TOKENS) |
 
 
@@ -47,16 +47,16 @@ Kontak (`lib/constants.ts`), statistik, testimoni, portofolio contoh (`sample: t
 spesifikasi produk seri P1.25–P3. Penanda "Data contoh / akan diperbarui" bisa dimatikan lewat `SHOW_PLACEHOLDER_NOTES` di `lib/constants.ts`.
 Gambar baru: `brands` 23–25, `portfolio` 26–31, `articles` 32–37 (lihat `lib/images.ts`, cek dengan `npm run images:check`).
 
-## Sistem gambar PNG (sequential)
-Semua path diatur di `lib/images.ts`. Cukup taruh file PNG dengan nama berikut — tidak perlu mengubah kode.
+## Sistem gambar WebP (sequential)
+Semua path diatur di `lib/images.ts`. Cukup taruh file WebP dengan nama berikut — tidak perlu mengubah kode.
 Sebelum file ada, `<Media />` menampilkan placeholder berukuran sama dengan container (tanpa broken image / ruang kosong).
 Cek progres: `npm run images:check`.
 
 | File | Isi |
 |---|---|
-| `public/images/products/1.png` … `6.png` | Indoor P1.25, P1.53, P1.86, P2, P2.5, P3 |
-| `public/images/applications/7.png` … `16.png` | Mall, Hotel, Restaurant, Retail, Showroom, Lobby, Meeting Room, Event, Education, Worship Place |
-| `public/images/gallery/17.png` … `22.png` | Lobby Hotel, Ruang Meeting, Pusat Perbelanjaan, Ballroom, Showroom, Tempat Ibadah |
+| `public/images/products/1.webp` … `6.webp` | Indoor P1.25, P1.53, P1.86, P2, P2.5, P3 |
+| `public/images/applications/7.webp` … `16.webp` | Mall, Hotel, Restaurant, Retail, Showroom, Lobby, Meeting Room, Event, Education, Worship Place |
+| `public/images/gallery/17.webp` … `22.webp` | Lobby Hotel, Ruang Meeting, Pusat Perbelanjaan, Ballroom, Showroom, Tempat Ibadah |
 
 Saran: ekspor PNG maksimal ±1600px di sisi terpanjang. Next.js otomatis menyajikannya sebagai AVIF/WebP ke browser.
 
@@ -85,6 +85,6 @@ Untuk item di dalam grid gunakan `<StaggerItem index={i}>`. Jarak atas section p
 ## Catatan pembaruan (redesign beranda)
 - Kontak, WhatsApp, dan alamat dikelola di `lib/constants.ts` (`SITE`, `MAPS_URL`, `MAPS_EMBED_URL`).
 - Foto proyek asli: `public/images/proyek/`. Gambar berlabel "Ilustrasi" adalah render konsep — ganti dengan foto asli bila ada.
-- Logo brand: `public/images/logos/` (`hikvision.png` sudah memakai logo Hikvision).
+- Logo brand: `public/images/logos/` (`hikvision.webp` sudah memakai logo Hikvision).
 - Logo pelanggan & testimoni asli diisi di `data/customers.ts` (kosong = tidak tampil).
 - Teknologi/penggunaan brand di `data/brands.ts` bersifat umum, bukan spesifikasi resmi.

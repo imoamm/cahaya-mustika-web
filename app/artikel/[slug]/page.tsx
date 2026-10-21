@@ -4,11 +4,9 @@ import { notFound } from "next/navigation";
 import { ChevronRight } from "lucide-react";
 import { Section, SectionHeading } from "@/components/ui/Section";
 import { Media } from "@/components/ui/Media";
-import { ConsultButton } from "@/components/ui/ConsultButton";
 import { BlurIn, FadeUp, ScaleIn } from "@/components/animations";
 import { ArticleCard } from "@/components/article/ArticleCard";
 import { Stagger, StaggerItem } from "@/components/animations";
-import { CtaBanner } from "@/components/sections/CtaBanner";
 import { DateText, T, Tx } from "@/components/i18n/T";
 import { articles, getArticle } from "@/data/articles";
 import { SITE } from "@/lib/constants";
@@ -76,13 +74,6 @@ export default async function Page({ params }: Props) {
               )}
             </div>
           </FadeUp>
-          <FadeUp className="mt-10">
-            <div className="card rounded-2xl p-6 text-center sm:p-8">
-              <h2 className="text-xl font-bold sm:text-2xl"><T k="art.ctaTitle" /></h2>
-              <p className="mx-auto mt-2 max-w-md text-sm text-muted"><T k="art.ctaText" /></p>
-              <div className="mt-5 flex justify-center"><ConsultButton /></div>
-            </div>
-          </FadeUp>
         </article>
       </Section>
 
@@ -94,7 +85,6 @@ export default async function Page({ params }: Props) {
           </Stagger>
         </Section>
       )}
-      <CtaBanner />
     </>
   );
 }

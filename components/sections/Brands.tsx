@@ -16,7 +16,7 @@ export function Brands() {
       <Section>
         <SectionHeading
           align="center"
-          title={tx(bi("Produk Samsung, LG, dan Hikvision", "Samsung, LG, and Hikvision Products"))}
+          title={tx(bi("Merk Samsung, LG, dan Hikvision", "Samsung, LG, and Hikvision Brands"))}
           desc={tx(bi("Pilih brand untuk melihat keunggulan, teknologi, dan penggunaannya.", "Pick a brand to see its advantages, technology, and uses."))}
         />
         <Stagger className="grid gap-5 md:grid-cols-3">

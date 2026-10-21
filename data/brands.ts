@@ -11,8 +11,8 @@ export type Brand = {
   tagline: Bi;
   about: Bi;
   advantages: { title: Bi; text: Bi }[];
-  image: string; // public/images/brands/23–25.png (placeholder otomatis jika belum ada)
-  /** Logo brand (SVG) — ganti file di public/images/logos/ dengan logo resmi bila tersedia. */
+  image: string; // public/images/brands/23–25.webp (placeholder otomatis jika belum ada)
+  /** Logo brand (WebP) — ganti file di public/images/logos/ dengan logo resmi bila tersedia. */
   logo: string;
   /** Teknologi & penggunaan: deskripsi umum, BUKAN spesifikasi resmi. Ganti setelah materi principal tersedia. */
   technology: Bi[];
@@ -44,21 +44,21 @@ const usage: Bi[] = [
 
 export const brands: Brand[] = [
   {
-    id: "samsung", name: "Samsung", image: imagePath("brands", 23), logo: "/images/logos/samsung.svg", technology, usage, placeholder: true,
+    id: "samsung", name: "Samsung", image: imagePath("brands", 23), logo: "/images/logos/samsung.webp", technology, usage, placeholder: true,
     tagline: bi("Solusi LED Display Samsung untuk ruang profesional", "Samsung LED Display solutions for professional spaces"),
-    about: bi("Halaman ini menampilkan produk Samsung yang tersedia melalui Cahaya Mustika. Detail lini produk dan spesifikasi resmi sedang disiapkan.", "This page presents Samsung products available through Cahaya Mustika. Official product line details and specifications are being prepared."),
+    about: bi("Halaman ini menampilkan produk Samsung yang tersedia melalui Cahaya Mustika Internesia. Detail lini produk dan spesifikasi resmi sedang disiapkan.", "This page presents Samsung products available through Cahaya Mustika Internesia. Official product line details and specifications are being prepared."),
     advantages: generic("Samsung"),
   },
   {
-    id: "lg", name: "LG", image: imagePath("brands", 24), logo: "/images/logos/lg.svg", technology, usage, placeholder: true,
+    id: "lg", name: "LG", image: imagePath("brands", 24), logo: "/images/logos/lg.webp", technology, usage, placeholder: true,
     tagline: bi("Solusi LED Display LG untuk ruang profesional", "LG LED Display solutions for professional spaces"),
-    about: bi("Halaman ini menampilkan produk LG yang tersedia melalui Cahaya Mustika. Detail lini produk dan spesifikasi resmi sedang disiapkan.", "This page presents LG products available through Cahaya Mustika. Official product line details and specifications are being prepared."),
+    about: bi("Halaman ini menampilkan produk LG yang tersedia melalui Cahaya Mustika Internesia. Detail lini produk dan spesifikasi resmi sedang disiapkan.", "This page presents LG products available through Cahaya Mustika Internesia. Official product line details and specifications are being prepared."),
     advantages: generic("LG"),
   },
   {
-    id: "hivision", name: "Hikvision", image: imagePath("brands", 25), logo: "/images/logos/hikvision.png", technology, usage, placeholder: true,
+    id: "hivision", name: "Hikvision", image: imagePath("brands", 25), logo: "/images/logos/hikvision.webp", technology, usage, placeholder: true,
     tagline: bi("Solusi LED Display Hikvision untuk ruang profesional", "Hikvision LED Display solutions for professional spaces"),
-    about: bi("Halaman ini menampilkan produk Hikvision yang tersedia melalui Cahaya Mustika. Detail lini produk dan spesifikasi resmi sedang disiapkan.", "This page presents Hikvision products available through Cahaya Mustika. Official product line details and specifications are being prepared."),
+    about: bi("Halaman ini menampilkan produk Hikvision yang tersedia melalui Cahaya Mustika Internesia. Detail lini produk dan spesifikasi resmi sedang disiapkan.", "This page presents Hikvision products available through Cahaya Mustika Internesia. Official product line details and specifications are being prepared."),
     advantages: generic("Hikvision"),
   },
 ];

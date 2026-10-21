@@ -56,7 +56,7 @@ export function ContactSection({ h1 = false, heading }: Props) {
         <ScaleIn className="min-w-0">
           <div className="map-frame card relative h-full min-h-[18rem] overflow-hidden rounded-2xl sm:min-h-[24rem] sm:rounded-3xl">
             <iframe
-              title={tx(bi("Lokasi Cahaya Mustika di Google Maps", "Cahaya Mustika location on Google Maps"))}
+              title={tx(bi("Lokasi Cahaya Mustika Internesia di Google Maps", "Cahaya Mustika Internesia location on Google Maps"))}
               src={MAPS_EMBED_URL}
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -11,23 +12,13 @@ import { Logo } from "./Logo";
 import { ThemeSwitcher } from "./ThemeSwitcher";
 import { ProductsMenu } from "./ProductsMenu";
 import { useI18n } from "@/components/i18n/LanguageProvider";
-import { ConsultButton } from "@/components/ui/ConsultButton";
 import { PAGE_PX } from "@/lib/utils";
 import type { DictKey } from "@/lib/i18n/dict";
 
 const LINKS: { key: DictKey; href: string }[] = [
-  {
-    key: "nav.portfolio",
-    href: "/portofolio",
-  },
-  {
-    key: "nav.articles",
-    href: "/artikel",
-  },
-  {
-    key: "nav.contact",
-    href: "/kontak",
-  },
+  { key: "nav.portfolio", href: "/portofolio" },
+  { key: "nav.articles", href: "/artikel" },
+  { key: "nav.contact", href: "/kontak" },
 ];
 
 export function Navbar() {
@@ -38,18 +29,18 @@ export function Navbar() {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const on = () => {
+    const handleScroll = () => {
       setScrolled(window.scrollY > 24);
     };
 
-    on();
+    handleScroll();
 
-    window.addEventListener("scroll", on, {
+    window.addEventListener("scroll", handleScroll, {
       passive: true,
     });
 
     return () => {
-      window.removeEventListener("scroll", on);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
@@ -60,348 +51,216 @@ export function Navbar() {
   useEffect(() => {
     if (!open) return;
 
-    const k = (e: KeyboardEvent) => {
-      if (e.key === "Escape") {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
         setOpen(false);
       }
     };
 
-    window.addEventListener("keydown", k);
+    window.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      window.removeEventListener("keydown", k);
+      window.removeEventListener("keydown", handleKeyDown);
     };
   }, [open]);
 
-  const cur = (href: string) =>
+  const isActive = (href: string) =>
     href === "/"
       ? pathname === "/"
       : pathname.startsWith(href);
 
-  const desk = (href: string) =>
-    `text-sm transition-colors hover:text-fg ${
-      cur(href)
-        ? "text-fg"
-        : "text-muted"
-    }`;
+  const desktopLinkClass = (href: string) =>
+    [
+      "whitespace-nowrap text-sm font-medium",
+      "transition-colors duration-200",
+      "hover:text-fg",
+      isActive(href) ? "text-fg" : "text-muted",
+    ].join(" ");
 
-  const mob = (href: string) =>
-    `block border-b border-line py-3.5 text-base outline-offset-[-2px] ${
-      cur(href)
+  const mobileLinkClass = (href: string) =>
+    [
+      "block border-b border-line py-3.5",
+      "text-base outline-offset-[-2px]",
+      "transition-colors duration-200",
+      isActive(href)
         ? "font-semibold text-brand2"
-        : ""
-    }`;
+        : "hover:text-fg",
+    ].join(" ");
 
   return (
     <header
-      className={`
-        fixed
-        inset-x-0
-        top-0
-        z-50
-        transition-all
-        duration-300
-        ${
-          scrolled || open
-            ? "border-b border-line bg-[var(--nav)] py-2.5 backdrop-blur-xl"
-            : "py-4"
-        }
-      `}
+      className={[
+        "fixed inset-x-0 top-0 z-50",
+        "border-b border-line",
+        "bg-[var(--nav)]/90 backdrop-blur-xl",
+        "transition-shadow duration-300",
+        scrolled || open ? "shadow-sm" : "",
+      ].join(" ")}
     >
+      {/* MAIN NAVBAR */}
       <div
-        className={`
-          mx-auto
-          flex
-          max-w-7xl
-          items-center
-          justify-between
-          gap-3
-          ${PAGE_PX}
-        `}
+        className={[
+          "relative mx-auto flex max-w-7xl",
+          "items-center justify-between gap-4 py-3",
+          PAGE_PX,
+        ].join(" ")}
       >
-        {/* =========================
-            LOGO
-        ========================== */}
-        <Logo />
+        {/* LOGO: LEFT */}
+        <div className="shrink-0">
+          <Logo />
+        </div>
 
-        {/* =========================
-            DESKTOP NAVIGATION
-        ========================== */}
-        <nav
+        {/* RIGHT: MENU + TEMA (desktop) */}
+        <div className="ml-auto hidden shrink-0 items-center gap-7 xl:flex">
+          <nav
           aria-label={t("nav.main")}
-          className="hidden items-center gap-6 xl:flex"
+          className="flex items-center gap-7"
         >
           <Link
             href="/"
-            aria-current={
-              pathname === "/"
-                ? "page"
-                : undefined
-            }
-            className={desk("/")}
+            aria-current={pathname === "/" ? "page" : undefined}
+            className={desktopLinkClass("/")}
           >
             {t("nav.home")}
           </Link>
 
           <ProductsMenu />
 
-          {LINKS.map((n) => (
+          {LINKS.map((item) => (
             <Link
-              key={n.href}
-              href={n.href}
+              key={item.href}
+              href={item.href}
               aria-current={
-                cur(n.href)
-                  ? "page"
-                  : undefined
+                isActive(item.href) ? "page" : undefined
               }
-              className={desk(n.href)}
+              className={desktopLinkClass(item.href)}
             >
-              {t(n.key)}
+              {t(item.key)}
             </Link>
           ))}
         </nav>
 
-        {/* =========================
-            DESKTOP ACTIONS
-        ========================== */}
-        <div className="hidden items-center gap-3 xl:flex">
-          {/* Satu tombol ganti tema (Terang <-> Gelap) */}
           <ThemeSwitcher />
-
-          <ConsultButton
-            className="!px-5 !py-2.5"
-          />
         </div>
 
-        {/* =========================
-            MOBILE MENU BUTTON
-        ========================== */}
+        {/* MOBILE MENU BUTTON */}
         <button
           type="button"
           className="
-            grid
-            size-11
-            shrink-0
-            place-items-center
-            rounded-full
-            border
-            border-line
-            xl:hidden
+            ml-auto grid size-10 shrink-0
+            place-items-center rounded-full
+            border border-line transition-colors
+            hover:bg-[var(--nav)] xl:hidden
           "
           aria-label={
-            open
-              ? t("nav.menuClose")
-              : t("nav.menuOpen")
+            open ? t("nav.menuClose") : t("nav.menuOpen")
           }
           aria-expanded={open}
           aria-controls="mobile-menu"
-          onClick={() =>
-            setOpen((o) => !o)
-          }
+          onClick={() => setOpen((current) => !current)}
         >
-          <AnimatePresence
-            mode="wait"
-            initial={false}
-          >
+          <AnimatePresence mode="wait" initial={false}>
             <motion.span
-              key={
-                open
-                  ? "x"
-                  : "m"
-              }
-              initial={{
-                rotate: -90,
-                opacity: 0,
-              }}
-              animate={{
-                rotate: 0,
-                opacity: 1,
-              }}
-              exit={{
-                rotate: 90,
-                opacity: 0,
-              }}
-              transition={{
-                duration: 0.18,
-              }}
+              key={open ? "close" : "menu"}
+              initial={{ opacity: 0, rotate: -90 }}
+              animate={{ opacity: 1, rotate: 0 }}
+              exit={{ opacity: 0, rotate: 90 }}
+              transition={{ duration: 0.16 }}
+              className="grid place-items-center"
             >
-              {open ? (
-                <X size={20} />
-              ) : (
-                <Menu size={20} />
-              )}
+              {open ? <X size={20} /> : <Menu size={20} />}
             </motion.span>
           </AnimatePresence>
         </button>
       </div>
 
-      {/* =========================
-          MOBILE MENU
-      ========================== */}
+      {/* MOBILE NAVIGATION */}
       <AnimatePresence>
         {open && (
           <motion.div
             id="mobile-menu"
-            initial={{
-              opacity: 0,
-              y: -12,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            exit={{
-              opacity: 0,
-              y: -12,
-            }}
-            transition={{
-              duration: 0.25,
-            }}
-            className={`
-              max-h-[calc(100dvh-4.5rem)]
-              overflow-y-auto
-              overscroll-contain
-              pb-6
-              pt-3
-              xl:hidden
-              ${PAGE_PX}
-            `}
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.22 }}
+            className="overflow-hidden border-t border-line xl:hidden"
           >
-            <nav
-              aria-label={t("nav.mobile")}
-              className="
-                flex
-                flex-col
-                md:mx-auto
-                md:max-w-xl
-              "
+            <div
+              className={[
+                "max-h-[calc(100dvh-4.5rem)]",
+                "overflow-y-auto overscroll-contain",
+                "pb-5 pt-2",
+                PAGE_PX,
+              ].join(" ")}
             >
-              {/* =========================
-                  BERANDA
-              ========================== */}
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  x: -16,
-                }}
-                animate={{
-                  opacity: 1,
-                  x: 0,
-                }}
+              <nav
+                aria-label={t("nav.mobile")}
+                className="mx-auto flex max-w-xl flex-col"
               >
+                {/* HOME */}
                 <Link
                   href="/"
-                  className={mob("/")}
+                  className={mobileLinkClass("/")}
                 >
                   {t("nav.home")}
                 </Link>
-              </motion.div>
 
-              {/* =========================
-                  PRODUK
-              ========================== */}
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  x: -16,
-                }}
-                animate={{
-                  opacity: 1,
-                  x: 0,
-                }}
-                transition={{
-                  delay: 0.04,
-                }}
-                className="border-b border-line"
-              >
-                <Link
-                  href="/produk"
-                  className="
-                    block
-                    py-3.5
-                    text-base
-                    outline-offset-[-2px]
-                  "
-                >
-                  {t("nav.products")}
-                </Link>
-
-                <ul className="mb-2 ml-3 border-l border-line pl-3">
-                  {brands.map((b) => (
-                    <li key={b.id}>
-                      <Link
-                        href={`/produk/${b.id}`}
-                        className={`
-                          block
-                          py-2.5
-                          text-[0.9375rem]
-                          text-muted
-                          outline-offset-[-2px]
-                          hover:text-fg
-                          ${
-                            pathname.startsWith(
-                              `/produk/${b.id}`
-                            )
-                              ? "font-semibold text-brand2"
-                              : ""
-                          }
-                        `}
-                      >
-                        {b.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-
-              {/* =========================
-                  LINK LAINNYA
-              ========================== */}
-              {LINKS.map((n, i) => (
-                <motion.div
-                  key={n.href}
-                  initial={{
-                    opacity: 0,
-                    x: -16,
-                  }}
-                  animate={{
-                    opacity: 1,
-                    x: 0,
-                  }}
-                  transition={{
-                    delay:
-                      0.04 * (i + 2),
-                  }}
-                >
+                {/* PRODUCTS */}
+                <div className="border-b border-line">
                   <Link
-                    href={n.href}
-                    className={mob(n.href)}
+                    href="/produk"
+                    className={[
+                      "block py-3.5 text-base",
+                      "transition-colors hover:text-fg",
+                      isActive("/produk")
+                        ? "font-semibold text-brand2"
+                        : "",
+                    ].join(" ")}
                   >
-                    {t(n.key)}
+                    {t("nav.products")}
                   </Link>
-                </motion.div>
-              ))}
-            </nav>
 
-            {/* =========================
-                MOBILE ACTIONS
-            ========================== */}
-            <div
-              className="
-                mt-6
-                flex
-                flex-col
-                gap-4
-                md:mx-auto
-                md:max-w-xl
-              "
-            >
-              <ConsultButton />
+                  <ul className="mb-3 ml-2 border-l border-line pl-4">
+                    {brands.map((brand) => {
+                      const href = `/produk/${brand.id}`;
+                      const active = pathname.startsWith(href);
 
-              <div className="flex items-center justify-end">
-                {/* Satu tombol ganti tema (Terang <-> Gelap) */}
-                <ThemeSwitcher showLabels />
-              </div>
+                      return (
+                        <li key={brand.id}>
+                          <Link
+                            href={href}
+                            className={[
+                              "block py-2.5 text-sm",
+                              "transition-colors hover:text-fg",
+                              active
+                                ? "font-semibold text-brand2"
+                                : "text-muted",
+                            ].join(" ")}
+                          >
+                            {brand.name}
+                          </Link>
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </div>
+
+                {/* OTHER LINKS */}
+                {LINKS.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={mobileLinkClass(item.href)}
+                  >
+                    {t(item.key)}
+                  </Link>
+                ))}
+
+                {/* MOBILE THEME SWITCHER */}
+                <div className="flex justify-end pt-5">
+                  <ThemeSwitcher showLabels />
+                </div>
+              </nav>
             </div>
           </motion.div>
         )}

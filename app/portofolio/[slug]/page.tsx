@@ -7,7 +7,6 @@ import { Media } from "@/components/ui/Media";
 import { ConsultButton } from "@/components/ui/ConsultButton";
 import { FadeUp, ImageReveal, Parallax, ScaleIn, Stagger, StaggerItem } from "@/components/animations";
 import { PortfolioGrid } from "@/components/portfolio/PortfolioGrid";
-import { CtaBanner } from "@/components/sections/CtaBanner";
 import { T, Tx } from "@/components/i18n/T";
 import { getPortfolio, portfolio } from "@/data/portfolio";
 import { bi } from "@/lib/i18n/types";
@@ -74,7 +73,6 @@ export default async function Page({ params }: Props) {
         <SectionHeading title={<T k="port.other" />} />
         <PortfolioGrid items={others} />
       </Section>
-      <CtaBanner />
     </>
   );
 }

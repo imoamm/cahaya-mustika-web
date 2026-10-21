@@ -3,6 +3,7 @@ import { CalendarDays } from "lucide-react";
 import { Media } from "@/components/ui/Media";
 import { DateText, T, Tx } from "@/components/i18n/T";
 import { FadeUp, Stagger, StaggerItem } from "@/components/animations";
+import { bi } from "@/lib/i18n/types";
 import { ArticleCard } from "./ArticleCard";
 import type { Article } from "@/data/articles";
 
@@ -22,7 +23,8 @@ export function ArticleList({ items }: { items: Article[] }) {
 
       {/* Artikel lainnya */}
       {rest.length > 0 && (
-        <aside aria-label="Artikel lainnya" className="min-w-0 lg:border-l lg:border-line lg:pl-10">
+        <aside aria-labelledby="artikel-lainnya" className="min-w-0 lg:border-l lg:border-line lg:pl-10">
+          <h2 id="artikel-lainnya" className="sr-only"><Tx v={bi("Artikel Lainnya", "More Articles")} /></h2>
           <Stagger>
             <ul className="grid gap-x-8 sm:grid-cols-2 lg:grid-cols-1">
               {rest.map((a, i) => (

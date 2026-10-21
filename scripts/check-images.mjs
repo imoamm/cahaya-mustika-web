@@ -1,4 +1,4 @@
-// Cek file PNG mana yang sudah / belum ada:  npm run images:check
+// Cek file WebP mana yang sudah / belum ada:  npm run images:check
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 
@@ -14,9 +14,9 @@ let missing = 0;
 for (const [group, [from, to, names]] of Object.entries(groups)) {
   console.log(`\npublic/images/${group}/`);
   for (let n = from; n <= to; n++) {
-    const ok = existsSync(join("public", "images", group, `${n}.png`));
+    const ok = existsSync(join("public", "images", group, `${n}.webp`));
     if (!ok) missing++;
-    console.log(`  ${ok ? "✓" : "✗"} ${n}.png  ${names[n - from]}`);
+    console.log(`  ${ok ? "✓" : "✗"} ${n}.webp  ${names[n - from]}`);
   }
 }
 console.log(`\n${37 - missing}/37 gambar tersedia${missing ? ` — ${missing} masih memakai placeholder.` : "."}`);

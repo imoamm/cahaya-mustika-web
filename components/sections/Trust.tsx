@@ -16,14 +16,16 @@ const SERVICES = [
   { icon: ClipboardList, title: bi("Solusi Sesuai Kebutuhan", "Tailored Solutions"), text: bi("Konfigurasi disesuaikan jenis ruang dan tujuan.", "Configured for your type of space and goals.") },
 ];
 
-export function Trust() {
+export function Trust({ h1 = false }: { h1?: boolean } = {}) {
   const { tx } = useI18n();
+  const H = h1 ? "h1" : "h2";
   return (
     <div id="tentang" className="relative scroll-mt-20 border-y border-line bg-surface">
       <Section>
         <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,6fr)_minmax(0,5fr)] lg:gap-14">
           <FadeRight className="min-w-0">
-            <h2 className="fluid-h2 text-balance font-bold">{tx(bi("Partner Visual Display untuk Bisnis Anda", "Your Visual Display Partner"))}</h2>
+            {h1 && <p className="mb-3 text-sm font-semibold text-brand2 sm:text-base">{tx(bi("Tentang", "About"))} {SITE.name}</p>}
+            <H className="fluid-h2 text-balance font-bold">{tx(bi("Partner Visual Display untuk Bisnis Anda", "Your Visual Display Partner"))}</H>
             <p className="mt-4 max-w-2xl text-sm leading-relaxed text-muted sm:mt-5 sm:text-base">
               {SITE.name} {tx(bi("adalah distributor Videotron Indoor & LED Display yang membantu bisnis memilih, memasang, dan merawat layar LED sesuai kebutuhan ruangan. Kami mendampingi Anda dari konsultasi awal sampai layar menyala.", "is an Indoor Videotron & LED Display distributor that helps businesses choose, install, and maintain LED screens to suit their spaces. We support you from the first consultation until the screen is on."))}
             </p>
@@ -47,7 +49,7 @@ export function Trust() {
               <div aria-hidden className="absolute -inset-3 -z-10 rounded-[2rem] bg-gradient-to-br from-brand/30 via-brand2/10 to-transparent blur-2xl" />
               <div className="relative aspect-[4/5] overflow-hidden rounded-3xl border border-line sm:aspect-[5/6] lg:aspect-[4/5]">
                 <Image
-                  src="/images/proyek/ruang-sidang.jpg"
+                  src="/images/proyek/ruang-sidang.webp"
                   alt={tx(bi("Layar LED indoor terpasang rapi di ruang sidang", "Indoor LED screen neatly installed in a conference room"))}
                   fill
                   sizes="(min-width:1024px) 40vw, 100vw"

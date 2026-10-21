@@ -1,1 +1,1 @@
-Taruh 26.png – 31.png di sini (urutan mengikuti data/portfolio.ts).
+Taruh 26.webp – 31.webp di sini (urutan mengikuti data/portfolio.ts).

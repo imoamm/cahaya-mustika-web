@@ -1,7 +1,7 @@
 import type { Bi } from "@/lib/i18n/types";
 
 // Logo pelanggan: isi array ini dengan pelanggan ASLI (izin pemakaian logo sudah didapat), contoh:
-//   { name: "Nama Perusahaan", logo: "/images/customers/nama-perusahaan.svg" }
+//   { name: "Nama Perusahaan", logo: "/images/customers/nama-perusahaan.webp" }
 // Letakkan file logo di public/images/customers/. Selama array kosong, baris logo tidak ditampilkan
 // (tidak ada nama pelanggan fiktif).
 export const customers: { name: string; logo: string }[] = [];

@@ -5,7 +5,7 @@ import type { BrandId } from "@/data/brands";
 // ⚠️ SEMUA entri di bawah adalah CONTOH (sample: true) — BUKAN proyek nyata.
 // TODO: ganti dengan proyek asli (title, client, location, year, brand, images), lalu set `sample: false`.
 // Selama `sample: true`, kartu & halaman detail menampilkan label "Contoh Portfolio".
-// Gambar: public/images/portfolio/26.png – 31.png (placeholder otomatis jika belum ada).
+// Gambar: public/images/portfolio/26.webp – 31.webp (placeholder otomatis jika belum ada).
 export type PortfolioItem = {
   slug: string;
   title: Bi;

@@ -5,7 +5,7 @@ import { imagePath } from "@/lib/images";
 // Tambah artikel baru cukup dengan menambah objek di `articles` — halaman list, detail, sitemap & SEO otomatis ikut.
 // `author` memakai nama perusahaan (tidak mengarang nama penulis). TODO: sesuaikan tanggal/penulis bila perlu.
 // Semua artikel satu kumpulan (tanpa kategori), diurutkan dari yang terbaru.
-// Gambar: public/images/articles/32.png – 37.png (placeholder otomatis jika belum ada).
+// Gambar: public/images/articles/32.webp – 37.webp (placeholder otomatis jika belum ada).
 export type ArticleBlock =
   | { t: "p"; text: Bi }
   | { t: "h2"; text: Bi }
@@ -25,11 +25,11 @@ export type Article = {
 const p = (id: string, en: string): ArticleBlock => ({ t: "p", text: bi(id, en) });
 const h = (id: string, en: string): ArticleBlock => ({ t: "h2", text: bi(id, en) });
 const ul = (...items: [string, string][]): ArticleBlock => ({ t: "ul", items: items.map(([id, en]) => bi(id, en)) });
-const AUTHOR = "Cahaya Mustika";
+const AUTHOR = "Cahaya Mustika Internesia";
 
 export const articles: Article[] = [
   {
-    slug: "apa-itu-videotron-indoor", date: "2026-09-28", author: AUTHOR, featured: true, image: imagePath("articles", 32),
+    slug: "apa-itu-videotron-indoor", date: "2026-09-29", author: AUTHOR, featured: true, image: imagePath("articles", 32),
     title: bi("Apa Itu Videotron Indoor dan Kapan Anda Membutuhkannya?", "What Is an Indoor Videotron and When Do You Need One?"),
     excerpt: bi("Kenali cara kerja layar LED indoor modular, keunggulannya dibanding layar konvensional, dan jenis ruangan yang cocok memakainya.", "Learn how modular indoor LED displays work, how they compare with conventional screens, and which spaces suit them."),
     content: [
@@ -43,7 +43,7 @@ export const articles: Article[] = [
     ],
   },
   {
-    slug: "cara-memilih-pixel-pitch", date: "2026-09-26", author: AUTHOR, featured: false, image: imagePath("articles", 33),
+    slug: "cara-memilih-pixel-pitch", date: "2026-09-29", author: AUTHOR, featured: false, image: imagePath("articles", 33),
     title: bi("Cara Memilih Pixel Pitch yang Tepat untuk Videotron Indoor", "How to Choose the Right Pixel Pitch for an Indoor Videotron"),
     excerpt: bi("Pixel pitch menentukan ketajaman gambar dan jarak pandang ideal. Pahami cara membacanya sebelum membeli.", "Pixel pitch determines image sharpness and ideal viewing distance. Learn how to read it before you buy."),
     content: [

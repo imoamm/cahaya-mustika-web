@@ -12,10 +12,10 @@ import { bi, type Bi } from "@/lib/i18n/types";
 const SOLUTIONS: { name: Bi; text: Bi; src: string; alt: Bi; kind: "foto" | "ilustrasi"; pos?: string }[] = [
   { name: bi("Lobby"), src: imagePath("gallery", 17), kind: "ilustrasi", text: bi("Kesan pertama untuk tamu: sambutan, informasi, dan identitas brand di satu dinding.", "A first impression for guests: welcome, information, and brand identity on one wall."), alt: bi("Ilustrasi videotron indoor di lobby modern", "Illustration of an indoor videotron in a modern lobby") },
   { name: bi("Retail"), src: imagePath("gallery", 19), kind: "ilustrasi", text: bi("Promo dan katalog bergerak yang menarik pengunjung ke dalam toko.", "Moving promos and catalogues that draw shoppers in."), alt: bi("Ilustrasi LED display di area retail", "Illustration of an LED display in a retail area") },
-  { name: bi("Ruang Meeting", "Meeting Room"), src: "/images/proyek/ruang-sidang.jpg", kind: "foto", pos: "50% 35%", text: bi("Presentasi dan video conference terbaca jelas dari semua kursi.", "Presentations and video calls readable from every seat."), alt: bi("Layar LED indoor di ruang sidang", "Indoor LED screen in a conference room") },
+  { name: bi("Ruang Meeting", "Meeting Room"), src: "/images/proyek/ruang-sidang.webp", kind: "foto", pos: "50% 35%", text: bi("Presentasi dan video conference terbaca jelas dari semua kursi.", "Presentations and video calls readable from every seat."), alt: bi("Layar LED indoor di ruang sidang", "Indoor LED screen in a conference room") },
   { name: bi("Event"), src: imagePath("gallery", 20), kind: "ilustrasi", text: bi("Latar panggung, ballroom, dan seminar dengan ukuran layar yang fleksibel.", "Stage backdrops, ballrooms, and seminars with flexible screen sizes."), alt: bi("Ilustrasi videotron indoor di ballroom event", "Illustration of an indoor videotron in an event ballroom") },
   { name: bi("Showroom"), src: imagePath("gallery", 21), kind: "ilustrasi", text: bi("Tampilkan produk dengan warna akurat dan latar yang konsisten.", "Show products with accurate color and a consistent backdrop."), alt: bi("Ilustrasi LED display di showroom", "Illustration of an LED display in a showroom") },
-  { name: bi("Ruang Publik", "Public Space"), src: "/images/proyek/lobby-rumah-sakit.jpg", kind: "foto", text: bi("Informasi dan visual untuk area yang dilalui banyak orang.", "Information and visuals for busy, high-traffic areas."), alt: bi("Layar LED indoor di area publik rumah sakit", "Indoor LED screen in a hospital public area") },
+  { name: bi("Ruang Publik", "Public Space"), src: "/images/proyek/lobby-rumah-sakit.webp", kind: "foto", text: bi("Informasi dan visual untuk area yang dilalui banyak orang.", "Information and visuals for busy, high-traffic areas."), alt: bi("Layar LED indoor di area publik rumah sakit", "Indoor LED screen in a hospital public area") },
 ];
 
 export function Solutions() {
@@ -40,7 +40,7 @@ export function Solutions() {
                 <h3 className="font-[family-name:var(--font-heading)] text-xl font-bold">{tx(s.name)}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{tx(s.text)}</p>
                 <a
-                  href={waLink(tx(bi(`Halo Cahaya Mustika, saya ingin konsultasi videotron indoor untuk ${s.name.id}.`, `Hello Cahaya Mustika, I would like a consultation about an indoor videotron for ${s.name.en}.`)))}
+                  href={waLink(tx(bi(`Halo Cahaya Mustika Internesia, saya ingin konsultasi videotron indoor untuk ${s.name.id}.`, `Hello Cahaya Mustika Internesia, I would like a consultation about an indoor videotron for ${s.name.en}.`)))}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-semibold text-brand2 transition hover:gap-2.5"

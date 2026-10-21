@@ -15,25 +15,25 @@ type Slide = { src: string; alt: Bi; label: Bi; position: string };
 // Semua foto adalah foto instalasi asli yang sudah ada di public/images/proyek.
 const SLIDES: Slide[] = [
   {
-    src: "/images/proyek/auditorium-logo.jpg",
+    src: "/images/proyek/auditorium-logo.webp",
     position: "68% center",
     label: bi("Auditorium", "Auditorium"),
-    alt: bi("Layar LED indoor di auditorium menampilkan logo Cahaya Mustika", "Indoor LED screen in an auditorium showing the Cahaya Mustika logo"),
+    alt: bi("Layar LED indoor di auditorium menampilkan logo Cahaya Mustika Internesia", "Indoor LED screen in an auditorium showing the Cahaya Mustika Internesia logo"),
   },
   {
-    src: "/images/proyek/lobby-rumah-sakit.jpg",
+    src: "/images/proyek/lobby-rumah-sakit.webp",
     position: "60% center",
     label: bi("Lobi", "Lobby"),
     alt: bi("Layar LED indoor lebar di area lobi gedung", "Wide indoor LED screen in a building lobby"),
   },
   {
-    src: "/images/proyek/ruang-sidang.jpg",
+    src: "/images/proyek/ruang-sidang.webp",
     position: "65% 40%",
     label: bi("Ruang sidang", "Meeting hall"),
     alt: bi("Layar LED indoor di ruang sidang", "Indoor LED screen in a meeting hall"),
   },
   {
-    src: "/images/proyek/auditorium-panorama.jpg",
+    src: "/images/proyek/auditorium-panorama.webp",
     position: "62% center",
     label: bi("Layar panorama", "Panoramic screen"),
     alt: bi("Layar LED panorama di ruang auditorium", "Panoramic LED screen in an auditorium"),

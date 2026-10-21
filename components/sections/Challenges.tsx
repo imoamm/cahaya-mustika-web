@@ -9,11 +9,9 @@ const ITEMS = [
   { title: bi("Visibilitas Informasi Terbatas", "Limited Information Visibility"), text: bi("Informasi penting sulit terbaca dari barisan belakang atau sudut ruangan, sehingga pesan tidak sampai ke semua orang.", "Key information is hard to read from the back rows or room corners, so the message does not reach everyone.") },
   { title: bi("Visual Kurang Maksimal", "Visuals Fall Short"), text: bi("Warna pucat, gambar berpiksel, dan kecerahan yang tidak sesuai ruangan membuat konten terlihat kurang profesional.", "Washed-out color, pixelated images, and brightness that does not suit the room make content look unprofessional.") },
   { title: bi("Kebutuhan Tampilan Berukuran Besar", "Need for a Large Display"), text: bi("Lobby, aula, dan ballroom butuh bidang layar luas dengan ukuran dan rasio yang pas, tanpa bezel yang mengganggu.", "Lobbies, halls, and ballrooms need a wide screen surface with the right size and ratio, without distracting bezels.") },
-  { title: bi("Penyampaian Informasi Kurang Dinamis", "Static Information Delivery"), text: bi("Poster dan papan statis sulit diperbarui. Promo, jadwal, dan pengumuman baru lambat sampai ke audiens.", "Posters and static boards are slow to update, so new promos, schedules, and announcements reach people late.") },
-  { title: bi("Pengalaman Audiens Kurang Menarik", "Underwhelming Audience Experience"), text: bi("Tanpa visual yang hidup dan tajam, pengunjung mudah bosan dan kesan pertama terhadap ruangan Anda menjadi biasa saja.", "Without vivid, sharp visuals, visitors lose interest and the first impression of your space turns ordinary.") },
 ];
 
-// Layout desktop (lg+): kiri = heading + deskripsi (sticky), kanan = 6 kartu terpisah dalam 2 kolom × 3 baris.
+// Layout desktop (lg+): kiri = heading + deskripsi (sticky), kanan = 4 kartu dalam 2 kolom × 2 baris.
 // Di bawah lg kolom menumpuk: heading di tengah, kartu 2 kolom (tablet) / 1 kolom (mobile).
 export function Challenges() {
   const { tx } = useI18n();
@@ -31,18 +29,17 @@ export function Challenges() {
         </FadeUp>
 
       <Stagger className="min-w-0">
-        <ol className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-4">
+        <ol className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
           {ITEMS.map((it, i) => (
             <li key={it.title.id} className="min-w-0">
               <StaggerItem index={i} className="h-full">
-                <article className="challenge-card group flex h-full items-start gap-4 rounded-2xl border border-line bg-surface p-4 sm:p-5">
-                  <span aria-hidden className="w-9 shrink-0 font-[family-name:var(--font-heading)] text-2xl font-extrabold leading-none tracking-tight text-brand sm:w-11 sm:text-3xl">
+                <article className="challenge-card h-full rounded-xl border border-line bg-surface p-6 sm:p-7">
+                  <span aria-hidden className="block font-[family-name:var(--font-heading)] text-sm font-semibold tracking-widest text-brand2">
                     {String(i + 1).padStart(2, "0")}
                   </span>
-                  <div className="min-w-0">
-                    <h3 className="font-[family-name:var(--font-heading)] text-base font-bold leading-snug sm:text-[17px]">{tx(it.title)}</h3>
-                    <p className="mt-1 text-sm leading-relaxed text-muted">{tx(it.text)}</p>
-                  </div>
+                  <span aria-hidden className="mt-3 block h-px w-8 bg-brand/50" />
+                  <h3 className="mt-4 font-[family-name:var(--font-heading)] text-lg font-bold leading-snug">{tx(it.title)}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted">{tx(it.text)}</p>
                 </article>
               </StaggerItem>
             </li>
